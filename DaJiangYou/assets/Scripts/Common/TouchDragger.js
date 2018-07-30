@@ -6,7 +6,7 @@ var TouchDragger = cc.Class({
             default: false
         },
         // ...
-    },
+    }, 
 
     // use this for initialization
     onLoad: function () {
