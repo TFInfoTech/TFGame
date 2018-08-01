@@ -20,21 +20,33 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        goodsPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         moneySumDisplay: {
             default: null,
             type: cc.Label
         }
     },
-    spawnNewMoney: function() {
+    spawnNewMoney: function(facevalue) {
         // 使用给定的模板在场景中生成一个新节点
-        let onemoney = cc.instantiate(this.moneyPrefab);
+        var onemoney = cc.instantiate(this.moneyPrefab);
         // 将新增的节点添加到 Canvas 节点下面
-        this.node.addChild(onemoney);
-        // 为星星设置一个随机位置
-        onemoney.setPosition(-50,this.moneystarty);
         this.moneystarty-=100
-        onemoney.getComponent('Money').game = this;
+        onemoney.getComponent("Money").initial (this,facevalue);
+        this.node.addChild(onemoney);
+        onemoney.setPosition (-50,this.moneystarty);
         this.moneys.push (onemoney);
+    },
+    spawnNewGoods: function() {
+        // 使用给定的模板在场景中生成一个新节点
+        var goods = cc.instantiate(this.goodsPrefab);
+        // 将新增的节点添加到 Canvas 节点下面
+        this.node.addChild(goods);
+        // 为星星设置一个随机位置
+        goods.setPosition(0,this.goodsstarty);
+        this.goodsstarty-=100
 
     },
     // LIFE-CYCLE CALLBACKS:
@@ -57,8 +69,10 @@ cc.Class({
        this.moneys =[];
 
        this.moneystarty=300;
-       this.spawnNewMoney();
-       this.spawnNewMoney();
+       this.goodsstarty=100;
+       this.spawnNewMoney(100);
+       this.spawnNewMoney(50);
+       this.spawnNewGoods ();
     },
 
     start () {

@@ -370,7 +370,10 @@
       "__id__": 5
     },
     "moneyPrefab": {
-      "__uuid__": "8ae45e42-b29e-4cd1-81b9-c1a5fe373afc"
+      "__uuid__": "98a5f000-1d62-4acc-9f60-1f7d5e313d67"
+    },
+    "goodsPrefab": {
+      "__uuid__": "f68bca21-06de-466f-bfb2-c3843e8474a9"
     },
     "moneySumDisplay": {
       "__id__": 8

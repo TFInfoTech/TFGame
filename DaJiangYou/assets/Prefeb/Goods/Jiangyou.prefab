@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "OneHundred",
+    "_name": "Jiangyou",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -47,8 +47,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 49.5
+      "width": 35,
+      "height": 75
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -75,10 +75,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "d5172669-5135-4399-9fa3-7538cb072dce"
+      "__uuid__": "78bbc1ac-2a23-40d3-90d1-5800daafe70f"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -93,15 +93,14 @@
     "_atlas": null
   },
   {
-    "__type__": "50719d/vy9JoZNkzQy7OmT0",
+    "__type__": "20aa6X2s9lIcJD/by0lut2c",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "pickRadius": 0,
-    "facevalue": 100
+    "price": 5
   },
   {
     "__type__": "10e23QHPtFGAYYcI/ArJltG",
@@ -119,9 +118,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "27487ed9-e513-4ae3-aa98-22c1938e6540"
     },
-    "fileId": "47lGsmCiRA1b5fKTDTMLWk",
+    "fileId": "aalNNP/65JkYQ4q+wDZL7J",
     "sync": false
   }
 ]

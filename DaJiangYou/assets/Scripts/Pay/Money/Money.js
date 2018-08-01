@@ -1,24 +1,36 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        pickRadius: 60,
-        // 暂存 Game 对象的引用
+        spriteList: {
+            default: [],
+            type: [cc.SpriteFrame]
+        },
         facevalue:0,
+        pickRadius: 0,
+        // 暂存 Game 对象的引用
         game: {
             default: null,
             serializable: false
         }
+    }, 
+
+    // use this for initialization
+    onLoad: function () {
+        // var randomIdx = Helpers.getRandomInt(0, this.spriteList.length);
+        var sprite = this.getComponent(cc.Sprite);
+        for ( var i = 0; i <this.spriteList.length; i++){
+            if (this.spriteList[i].name==this.facevalue)
+            {
+                sprite.spriteFrame = this.spriteList[i];
+            }
+        }
+        //this.node.addnode (sprite);
+    },
+    initial: function (game,facevalue) {
+        //cc.log (this.getComponent (cc.Prefab));
+        this.game=game;
+        this.facevalue=facevalue;
     },
     getMoneyCollectorDistance: function () {
         // 根据 MoneyCollector 节点位置判断距离
@@ -27,24 +39,5 @@ cc.Class({
         var dist = cc.pDistance(this.node.position, MoneyCollectorPos);
         return dist;
     },
-    onPicked: function() {
-        // 调用 Game 脚本的得分方法
-        this.game.collectMoney(this.facevalue);
-    },
-    // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-
-    start () {
-
-    },
-/*     update: function (dt) {
-        // 每帧判断和主角之间的距离是否小于收集距离
-        if (this.getMoneyCollectorDistance() < 150) {
-            // 调用收集行为
-            //cc.log (this.pickRadius);
-            this.onPicked();
-            return;
-        }
-    }, */   
 });
